@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public Vector2 speed;
+    public Vector2 resetPosition;
+    private Rigidbody2D rig;
 
+    private void Start(){
+
+        rig = GetComponent<Rigidbody2D>();
+        rig.velocity = speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = transform.position + (new Vector3(0.1f, 0, 0) * Time.deltaTime);
-
+    public void ResetBall(){
+        transform.position = new Vector3(resetPosition.x, resetPosition.y, 2);
     }
 }
